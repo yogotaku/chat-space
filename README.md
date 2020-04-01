@@ -26,7 +26,7 @@
 - belongs_to :user
 - belongs_to :group
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
