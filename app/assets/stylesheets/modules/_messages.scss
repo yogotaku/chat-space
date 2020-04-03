@@ -1,3 +1,185 @@
 * {
   box-sizing: border-box;
 }
+
+/*変数定義*/
+$mainWhiteColor: #ffffff;  
+
+/*mixinの定義*/
+@mixin flex_between() {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex; /*side-barとchat-mainを横並びにするため*/
+
+  /*サイドバーの装飾*/
+  .side-bar {
+    height: 100vh;
+    width: 300px;
+    background-color: #2f3e51;
+    /*サイドバー上部分の修飾*/
+    &__user-name {
+      height: 100px;
+      background-color: #253141;
+      display: flex;
+      align-items: center;  /*top-itemsを上下中央にするため*/
+      .top-items {
+        height: 20px;
+        width: 260px;
+        margin: 0 auto;
+        @include flex_between();  /*ユーザー名とアイコンを横並びにするため*/
+        &__name {
+          width: 200px;
+          font-size: 16px;
+          line-height: 20px;
+          color: $mainWhiteColor;
+          font-weight: bold;
+        }
+        &__icons {
+          width: 60px;
+          text-align: right;
+          line-height: 20px;
+          &--white {
+            color: $mainWhiteColor;
+            text-decoration: none;
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+    /*サイドバー下部分の修飾*/
+    &__group-list {
+      .body-items {
+        display: block;
+        width: 260px;
+        margin: 0 auto;
+        text-decoration: none;
+        &__group-name {
+          padding: 20px 0 5px 0;
+          color: $mainWhiteColor;
+          font-size: 15px;
+          font-weight: bold;
+        }
+        &__group-message {
+          padding-bottom: 40px;
+          color: $mainWhiteColor;
+          font-size: 11px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  /*chat-main部分の装飾*/
+  .chat-main {
+    height: 100vh;
+    width: calc(100vw - 300px);
+    background-color: $mainWhiteColor;
+    /*chat-main上部分の修飾*/
+    &__group-view {
+      height: 100px;
+      background-color: $mainWhiteColor;
+      padding: 0 40px;
+      @include flex_between();  /*グループ名のEditボタンを横並びにするため*/
+      .group-info {
+        &__name {
+          color: #333333;
+          font-size: 20px;
+          padding: 35px 0 15px 0;
+          }
+        &__members {
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      .edit-btn {
+        height: 40px;
+        width: 72px;
+        margin-top: 28px;
+        color: #38aef0;
+        font-size: 16px;
+        line-height: 40px;
+        padding: 0 20px;
+        text-decoration: none;
+        border: solid 1px;
+      }
+    }
+    /*chat-main真ん中部分の修飾*/
+    &__message-list {
+      height: calc(100vh - 100px - 90px);
+      background-color: #fafafa;
+      .chat-items {
+        margin-left: 40px;
+        &__top {
+          padding-top: 35px;
+          display: flex;  /*ユーザー名と投稿日時を横並びにするため*/
+          &--black {
+            color: #333333;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &--gray {
+            color: #999999;
+            font-size: 12px;
+          }
+        }
+        &__text {
+          margin: 12px 0 46px 0;
+          color: #434a54;
+          font-size: 14px;
+        }
+      }
+    }
+    /*chat-main下部分の修飾*/
+    &__message-form {
+      height: 90px;
+      background-color: #d2d2d2;
+      @include flex_between();  /*メッセージ入力フォームとSendボタンを横並びにするため*/
+      align-items: center;
+      .form-input {
+        width: 100%;
+        margin-left: 40px;
+        display: flex;  /*テキスト入力欄と画像投稿ボタンを横並びにするため*/
+        align-items: center;  /*テキスト入力欄と画像投稿ボタンを上下中央にするため*/
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          padding: 0 10px;
+          border-style: none;
+        }
+        &__image {
+          position: absolute;
+          right: 10px;
+          cursor: pointer;
+          &__icon {
+            font-size: 1.5em;
+          }
+          &__label {
+          }
+        }
+      }
+      .form-btn {
+        height: 50px;
+        width: 100px;
+        margin: 0 40px 0 15px;
+        padding: 0 30px;
+        background-color: #38aef0;
+        color: $mainWhiteColor;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
