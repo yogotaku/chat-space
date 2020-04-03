@@ -1,0 +1,35 @@
+.side-bar
+  .side-bar__user-name
+    / 上部分の実装
+    .top-items
+      .top-items__name
+        aiueo
+      .top-items__icons
+        = link_to "#", class: "top-items__icons--white" do
+          %i.far.fa-edit
+          %span<>
+        = link_to "#", class: "top-items__icons--white" do
+          %i.fas.fa-cog
+          /TODO アイコンにリンク先を定義する
+
+  .side-bar__group-list
+    / 下部分の実装
+    = link_to "#", class: "body-items" do
+      .body-items__group-name
+        グループ名
+      .body-items__group-message
+        こんにちは
+    = link_to "#", class: "body-items" do
+      .body-items__group-name
+        グループ名
+      .body-items__group-message
+        こんにちは
+    = link_to "#", class: "body-items" do
+      .body-items__group-name
+        グループ名
+      .body-items__group-message
+        こんにちは
+    / 
+      TODO 
+      eachメソッドでグループの情報を取り出すようにする
+      リンク先を定義してグループの移動が出来るようにする
