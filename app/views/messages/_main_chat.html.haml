@@ -1,0 +1,48 @@
+.chat-main
+  .chat-main__group-view
+    /上部分の実装
+    .group-info
+      .group-info__name
+        グループ名
+      .group-info__members
+        メンバー名
+    =link_to "Edit", "#", class: "edit-btn"
+    /TODO Editボタンにリンク先を定義する
+
+  .chat-main__message-list
+    /真ん中部分の実装
+    .chat-items
+      .chat-items__top
+        .chat-items__top--black
+          ユーザー名
+        .chat-items__top--gray
+          日付
+      .chat-items__text
+        本文内容
+    .chat-items
+      .chat-items__top
+        .chat-items__top--black
+          ユーザー名
+        .chat-items__top--gray
+          日付
+      .chat-items__text
+        本文内容
+    .chat-items
+      .chat-items__top
+        .chat-items__top--black
+          ユーザー名
+        .chat-items__top--gray
+          日付
+      .chat-items__text
+        本文内容
+    /TODO eachメソッドを使ってメッセージを取り出せるようにする
+
+  %form.chat-main__message-form
+    /下部分の実装
+    .form-input
+      %input.form-input__text{name: "text", placeholder: "type a message", type: "text" }
+      %label.form-input__image
+        %i.far.fa-image.form-input__image__icon
+        %input.form-input__image__label{name: "image", type: "file"}
+    %input.form-btn{value: "Send", type: "submit"}
+
