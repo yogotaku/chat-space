@@ -5,7 +5,7 @@
       .top-items__name
         = current_user.name
       .top-items__icons
-        = link_to "#", class: "top-items__icons--white" do
+        = link_to new_group_path, class: "top-items__icons--white" do
           %i.far.fa-edit
           %span<>
         = link_to edit_user_path(current_user), class: "top-items__icons--white" do
@@ -14,21 +14,12 @@
 
   .side-bar__group-list
     / 下部分の実装
-    = link_to "#", class: "body-items" do
-      .body-items__group-name
-        グループ名
-      .body-items__group-message
-        こんにちは
-    = link_to "#", class: "body-items" do
-      .body-items__group-name
-        グループ名
-      .body-items__group-message
-        こんにちは
-    = link_to "#", class: "body-items" do
-      .body-items__group-name
-        グループ名
-      .body-items__group-message
-        こんにちは
+    - current_user.groups.each do |group|
+      = link_to "#", class: "body-items" do
+        .body-items__group-name
+          = group.name
+        .body-items__group-message
+          こんにちは
     / 
       TODO 
       eachメソッドでグループの情報を取り出すようにする
