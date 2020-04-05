@@ -3,12 +3,12 @@
     / 上部分の実装
     .top-items
       .top-items__name
-        aiueo
+        = current_user.name
       .top-items__icons
         = link_to "#", class: "top-items__icons--white" do
           %i.far.fa-edit
           %span<>
-        = link_to "#", class: "top-items__icons--white" do
+        = link_to edit_user_path(current_user), class: "top-items__icons--white" do
           %i.fas.fa-cog
           /TODO アイコンにリンク先を定義する
 
