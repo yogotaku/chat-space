@@ -113,6 +113,7 @@ $mainWhiteColor: #ffffff;
     &__message-list {
       height: calc(100vh - 100px - 90px);
       background-color: #fafafa;
+      overflow: scroll;
       .chat-items {
         margin-left: 40px;
         &__top {
@@ -126,12 +127,15 @@ $mainWhiteColor: #ffffff;
           &--gray {
             color: #999999;
             font-size: 12px;
+            margin-left: 10px;
           }
         }
-        &__text {
+        &__bottom {
           margin: 12px 0 46px 0;
-          color: #434a54;
-          font-size: 14px;
+          &__text {
+            color: #434a54;
+            font-size: 14px;
+          }
         }
       }
     }
@@ -164,15 +168,15 @@ $mainWhiteColor: #ffffff;
             display: none;
           }
         }
-      }
-      .form-btn {
-        height: 50px;
-        width: 100px;
-        margin: 0 40px 0 15px;
-        padding: 0 30px;
-        background-color: #38aef0;
-        color: $mainWhiteColor;
-        cursor: pointer;
+        &__btn {
+          height: 50px;
+          width: 100px;
+          margin: 0 40px 0 15px;
+          padding: 0 30px;
+          background-color: #38aef0;
+          color: $mainWhiteColor;
+          cursor: pointer;
+        }
       }
     }
   }

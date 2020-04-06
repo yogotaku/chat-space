@@ -3,46 +3,23 @@
     /上部分の実装
     .group-info
       .group-info__name
-        グループ名
+        = @group.name
       .group-info__members
-        メンバー名
-    =link_to "Edit", "#", class: "edit-btn"
+        - @group.users.each do |user|
+          = user.name
+    = link_to "Edit", edit_group_path(@group), class: "edit-btn"
     /TODO Editボタンにリンク先を定義する
 
   .chat-main__message-list
     /真ん中部分の実装
-    .chat-items
-      .chat-items__top
-        .chat-items__top--black
-          ユーザー名
-        .chat-items__top--gray
-          日付
-      .chat-items__text
-        本文内容
-    .chat-items
-      .chat-items__top
-        .chat-items__top--black
-          ユーザー名
-        .chat-items__top--gray
-          日付
-      .chat-items__text
-        本文内容
-    .chat-items
-      .chat-items__top
-        .chat-items__top--black
-          ユーザー名
-        .chat-items__top--gray
-          日付
-      .chat-items__text
-        本文内容
-    /TODO eachメソッドを使ってメッセージを取り出せるようにする
+    = render @messages
 
-  %form.chat-main__message-form
     /下部分の実装
+  = form_for [@group, @message], html: {class: "chat-main__message-form"} do |f|
     .form-input
-      %input.form-input__text{name: "text", placeholder: "type a message", type: "text" }
-      %label.form-input__image
-        %i.far.fa-image.form-input__image__icon
-        %input.form-input__image__label{name: "image", type: "file"}
-    %input.form-btn{value: "Send", type: "submit"}
+      = f.text_field :content, placeholder: "type a message", class: "form-input__text"
+      = f.label :image, class: "form-input__image" do
+        = icon("far", "image", class: "form-input__image__icon")
+        = f.file_field :image, class: "form-input__image__label"
+    = f.submit "Send", class: "form-input__btn"
 
