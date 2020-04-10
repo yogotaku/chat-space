@@ -3,12 +3,12 @@ $(function() {
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    $.ajax( {
+    $.ajax({
       url: url,
       type: 'POST',
       data: formData,
       dataType: 'json',
-      proccesData: false,
+      processData: false,
       contentType: false
     })
   });
