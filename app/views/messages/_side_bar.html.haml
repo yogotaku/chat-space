@@ -10,7 +10,6 @@
           %span<>
         = link_to edit_user_path(current_user), class: "top-items__icons--white" do
           %i.fas.fa-cog
-          /TODO アイコンにリンク先を定義する
 
   .side-bar__group-list
     / 下部分の実装
@@ -20,7 +19,3 @@
           = group.name
         .body-items__group-message
           = group.show_last_message
-    / 
-      TODO 
-      eachメソッドでグループの情報を取り出すようにする
-      リンク先を定義してグループの移動が出来るようにする
