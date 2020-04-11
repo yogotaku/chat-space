@@ -1,6 +1,6 @@
 $(function() {
 
-  //  インクリメンタルサーチの実装
+  //関数の定義
   function addUser(user) {  //インクリメンタルサーチで候補が見つかったときの表示
     let html = `
                 <div class="chat-group-user clearfix">
@@ -20,7 +20,7 @@ $(function() {
     $('#user-search-result').append(html);
   }  
 
-  function selectUser(userName, userId) { //追加ボタンを押した後、チャットメンバーに追加されるときのビュー
+  function selectedUser(userName, userId) { //追加ボタンを押したときのビュー
     let html = `
                 <div class='chat-group-user'>
                   <input name='group[user_ids][]' type='hidden' value=${userId}> 
@@ -31,6 +31,9 @@ $(function() {
     $('#chat-group-users').append(html);
   }
 
+
+
+  //  インクリメンタルサーチの実装
   $('#user-search-field').on('keyup', function() {
     let input = $(this).val();
 
@@ -67,7 +70,7 @@ $(function() {
     $(this).parent().remove();  //追加候補から削除
     let name = $(this).data('userName');
     let id   = $(this).data('userId');
-    selectUser(name, id)
+    selectedUser(name, id)
   })
 
 
