@@ -54,6 +54,8 @@ $mainWhiteColor: #ffffff;
     }
     /*サイドバー下部分の修飾*/
     &__group-list {
+      height: calc(100vh - 100px);
+      overflow: scroll;
       .body-items {
         display: block;
         width: 260px;
