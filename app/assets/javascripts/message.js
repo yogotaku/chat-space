@@ -4,9 +4,7 @@ $(function() {
   function buildHTML(message){
     if (message.image) {
       // 画像が添付されていた場合
-      let html = // カスタムデータにメッセージのidを設定し、自動更新機能に利用する
-                  `
-                  <div class="chat-items", data-message-id=${message.id}>
+      let html = `<div class="chat-items", data-message-id=${message.id}>
                     <div class="chat-items__top">
                       <div class="chat-items__top--black">
                         ${message.user_name}
