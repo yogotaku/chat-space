@@ -33,15 +33,24 @@ $(function() {
 
 
 
+
   //  インクリメンタルサーチの実装
   $('#user-search-field').on('keyup', function() {
     let input = $(this).val();
+
+    let members = $("input[name='group[user_ids][]']").map(function(){
+                   return $(this).val();
+                  });
+    let memberIds = members.get();
+  
 
     $.ajax({
       type: 'GET',
       url: '/users',
       dataType: 'json',
-      data: {keyword: input}
+      data: {keyword: input, 
+             ids: memberIds
+            }
     })
 
     .done(function(users) {

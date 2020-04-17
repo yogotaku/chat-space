@@ -74,7 +74,7 @@ $(function() {
   let reloadMessages = function() {
     let last_message_id = $('.chat-items:last').data('message-id');
     $.ajax({
-      url: 'api/messages',  //ここはよくわからないので後で質問する!!
+      url: 'api/messages',
       type: 'GET',
       dataType: 'json',
       data: {id: last_message_id}

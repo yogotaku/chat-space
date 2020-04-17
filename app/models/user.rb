@@ -10,8 +10,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  def self.search(input, id)
+  def self.search(input, ids, id)
+    # binding.pry
     return nil if input == "" #この文が無いと検索ボックスを空にした時に全ユーザーが表示される
-    User.where("name LIKE ?", "%#{input}%").where.not(id: id).limit(10)
+    User.where("name LIKE ?", "%#{input}%").where.not(id: ids).where.not(id: id).limit(10)
   end
 end
