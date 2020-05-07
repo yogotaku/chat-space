@@ -42,11 +42,12 @@ $(function() {
       }
   }
 
+  // 非同期通信によるメッセージ送信機能
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    
+
     $.ajax({
       url: url,
       type: 'POST',
@@ -58,9 +59,11 @@ $(function() {
 
     .done(function(message) {
       let html = buildHTML(message);
+      
       $('.chat-main__message-list').append(html);
       $('form')[0].reset();
       $('.form-input__btn').prop('disabled', false);
+      // console.log($('.chat-main__message-list')[0])
       $('.chat-main__message-list').animate({scrollTop: $('.chat-main__message-list')[0].scrollHeight});
     })
 
